@@ -1,0 +1,20 @@
+{
+  "excludes": [
+    "**/node_modules",
+    "**/*-lock.json"
+  ],
+  "plugins": [
+    "https://plugins.dprint.dev/typescript-0.93.3.wasm"
+  ],
+  "incremental": true,
+  "lineWidth": 120,
+  "indentWidth": 2,
+  "typescript": {
+    "semiColons": "asi",
+    "quoteStyle": "preferSingle",
+    "useBraces": "always",
+    "trailingCommas": "never",
+    "arrowFunction.useParentheses": "preferNone",
+    "jsx.quoteStyle": "preferSingle"
+  }
+}
