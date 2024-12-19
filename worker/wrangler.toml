@@ -1,0 +1,22 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "weather"
+main = "src/index.ts"
+compatibility_date = "2024-12-18"
+compatibility_flags = ["nodejs_compat"]
+assets = { directory = "./public", binding = "ASSETS" }
+routes = [
+  { pattern = "weather.myobie.wtf", custom_domain = true }
+]
+
+# Workers Logs
+# Docs: https://developers.cloudflare.com/workers/observability/logs/workers-logs/
+# Configuration: https://developers.cloudflare.com/workers/observability/logs/workers-logs/#enable-workers-logs
+[observability]
+enabled = true
+
+[[unsafe.bindings]]
+name = "RATE_LIMITER"
+type = "ratelimit"
+namespace_id = "1001"
+# 1 million per month
+simple = { limit = 22, period = 60 }

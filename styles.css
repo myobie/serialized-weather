@@ -1,9 +1,0 @@
-get-location, get-weather {
-  display: block;
-}
-
-get-location[fetching],
-get-weather[fetching] {
-  opacity: 0.5;
-  background: pink;
-}

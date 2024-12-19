@@ -1,0 +1,227 @@
+:root {
+  --navy: #001F3F;
+  --aqua: #7FDBFF;
+  --white: #fff;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  box-sizing: border-box;
+  padding: 10px;
+  max-width: 30rem;
+  margin: 0 auto 5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --background-color: var(--white);
+  --color: var(--navy);
+  background-color: var(--background-color);
+  color: var(--color);
+}
+
+body:has([mode=night]) {
+  --background-color: var(--navy);
+  --color: var(--aqua);
+}
+
+get-location,
+get-weather {
+  display: block;
+}
+
+get-location[fetching],
+get-weather[fetching] {
+  opacity: 0.8;
+}
+
+get-location form {
+  display: flex;
+  align-content: center;
+  gap: 0.6rem;
+}
+
+get-location label, button {
+  flex: 0;
+}
+
+get-location label:nth-of-type(1) {
+  flex: 1;
+}
+
+get-location label > span {
+  position: absolute;
+  left: -9999em;
+}
+
+get-location button[type=submit] {
+  position: absolute;
+  left: -9999em;
+}
+
+get-location input[name=search] {
+  box-sizing: border-box;
+  width: 100%;
+  appearance: none;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 2rem;
+  border: 1px solid grey;
+}
+
+get-location select[name=unit] {
+  appearance: none;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  padding: 0.3rem 1.2rem 0.3rem 0.8rem;
+  border-radius: 2rem;
+  border: 1px solid grey;
+}
+
+get-location button[data-geo] {
+  appearance: none;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 2rem;
+  border: 1px solid grey;
+}
+
+locations-list {
+  display: contents;
+  position: relative;
+  width: 100%;
+}
+
+locations-list ul {
+  position: absolute;
+  list-style-type: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: white;
+}
+
+locations-list li {
+  padding: 0 0.8rem;
+  margin: 0;
+  line-height: 2.5rem;
+  font-size: 1.5rem;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin: 1em 0 0;
+}
+
+.current-time {
+  margin: 0 0 1.8rem;
+  opacity: 0.8;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 2em 0 0;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+p {
+  margin: 1em 0;
+}
+
+.icon {
+  margin: 0;
+}
+
+img {
+  display: block;
+  filter: invert(0.1) sepia(1) saturate(5) hue-rotate(172deg);
+}
+
+[mode=night] img {
+  filter: invert(0.77) sepia(1) saturate(5) hue-rotate(172deg);
+}
+
+.icon img {
+  margin: 0 auto;
+}
+
+.temps {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.hourly {
+  width: 100%;
+  display: flex;
+  flex-wrap: none;
+  overflow-x: auto;
+  gap: 2rem;
+
+  list-style-type: none;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.hourly li {
+  flex: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  text-align: center;
+}
+
+.hourly li span {
+  display: block;
+  text-wrap: nowrap;
+}
+
+.hourly .hour {
+  font-weight: 600;
+}
+
+.hourly .temp {
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.day {
+  margin: 2em 0 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.day .trailing {
+  padding: 0.2rem;
+}
+
+.day .temp {
+  margin: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.day .sun {
+  display: flex;
+  gap: 1rem;
+}
+
+.day .sun > span {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.day .sun img {
+  display: inline;
+}

@@ -1,0 +1,29 @@
+{
+	"name": "worker",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"build-frontend": "esbuild public/*.{ts,css} --allow-overwrite --outdir=public/dist --target=esnext --format=esm",
+		"deploy": "npm run build-frontend && npm run deploy:wrangler",
+		"deploy:wrangler": "wrangler deploy",
+		"dev": "concurrently --restart-tries 3 \"npm:dev:*\"",
+		"dev:frontend": "esbuild public/*.{ts,js,css} --allow-overwrite --watch --sourcemap --outdir=public/dist --target=esnext --format=esm",
+		"dev:wrangler": "wrangler dev",
+		"cf-typegen": "wrangler types"
+	},
+	"imports": {
+		"#dom": {
+			"default": "./src/linkedom-dom.ts"
+		}
+	},
+	"devDependencies": {
+		"@cloudflare/vitest-pool-workers": "^0.5.2",
+		"@cloudflare/workers-types": "^4.20241218.0",
+		"concurrently": "^9.1.0",
+		"esbuild": "^0.24.2",
+		"linkedom": "^0.18.6",
+		"typescript": "^5.5.2",
+		"vitest": "2.1.8",
+		"wrangler": "^3.60.3"
+	}
+}
