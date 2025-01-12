@@ -237,6 +237,8 @@ async function apiRequest(url: string | URL, env?: Env): Promise<Response> {
 }
 
 export async function getWeather(loc: Loc, unit: TemperatureUnit, env?: Env): Promise<Weather> {
+	console.warn('getting for loc', loc);
+
 	const url = new URL('https://api.open-meteo.com/v1/forecast');
 
 	const { longitude, latitude } = loc;

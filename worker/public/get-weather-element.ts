@@ -84,7 +84,7 @@ export class GetWeatherElement extends HTMLElement {
 
 		const loc: Loc = {
 			id: 0,
-			latitude: e.longitude,
+			latitude: e.latitude,
 			longitude: e.longitude,
 			timezone: new Intl.DateTimeFormat().resolvedOptions().timeZone,
 			name: e.name,
@@ -147,7 +147,6 @@ export class GetWeatherElement extends HTMLElement {
 			let loc;
 
 			if (typeof locOrId === 'number') {
-				console.warn('getting location for id', locOrId);
 				const env = getEnvContext(this);
 				loc = await getLoc(locOrId, env);
 			} else {
